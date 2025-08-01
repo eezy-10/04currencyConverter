@@ -5,7 +5,7 @@ function InputBox({
     amount,
     onAmountChange,
     onCurrencyChange,
-    currencyOptions = [],
+    currencyOptions,
     selectCurrency = 'usd',
 }) {
     const [amountInputID] = useId();
@@ -30,8 +30,8 @@ function InputBox({
             <select name="currencyType"
             value={selectCurrency} 
             onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}>
-                {currencyOptions.map((index, currency) => {
-                    <option value={currency} key={index}>{currency}</option>
+                {currencyOptions.map((currency) => {
+                    return <option value={currency} key={currency}>{currency}</option>
                 })}
             </select>
         </div>
